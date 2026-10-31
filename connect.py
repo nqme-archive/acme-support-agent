@@ -58,7 +58,7 @@ async def home(user: str):
     with use_subject(user):  # every call from here runs with this customer's own token
         me = await github.users_get_authenticated.ainvoke({})
     body = (f"<p>Connected as <b>{me['login']}</b>. The agent now acts in your GitHub as you, "
-            f"with your token, stored in Acme's own database.</p><small>{me.get('public_repos', 0)} public repos</small>")
+            f"with your token, stored in Acme's own database.</p>")
     return HTMLResponse(PAGE.format(body=body))
 
 
@@ -93,4 +93,4 @@ async def disconnect(user: str):
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app, port=8000)
+    uvicorn.run(app, port=8000, access_log=False)

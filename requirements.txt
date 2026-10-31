@@ -1,0 +1,4 @@
+charter-ai==0.6.0
+openai
+fastapi
+uvicorn

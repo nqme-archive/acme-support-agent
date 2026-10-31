@@ -1,0 +1,12 @@
+name: egress
+on: pull_request
+jobs:
+  what-the-agent-can-reach:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install charter-ai==0.6.0
+      - run: python check_egress.py

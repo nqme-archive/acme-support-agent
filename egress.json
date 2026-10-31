@@ -1,0 +1,25 @@
+{
+  "support_refund": {
+    "name": "refund",
+    "pack": "support",
+    "provider": null,
+    "method": "POST",
+    "url_template": "v1/refunds",
+    "mode": null,
+    "session_mode": null,
+    "modes": [],
+    "visible": [
+      "charge",
+      "amount",
+      "reason"
+    ],
+    "withheld": [
+      {
+        "field": "customer_id",
+        "reason": "context",
+        "key": "customer_id"
+      }
+    ],
+    "pinned": {}
+  }
+}

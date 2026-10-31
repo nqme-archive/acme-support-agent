@@ -6,6 +6,7 @@ from typing import Annotated, Literal, Optional
 from pydantic import BaseModel, Field, model_validator
 
 from charter import Body, FromContext, api_key_tool_factory
+from charter.packs import stripe as stripe_pack
 
 from billing import owner_of
 
@@ -37,4 +38,4 @@ refund = stripe(
     args_schema=Refund,
 )
 
-TOOLS = [refund]
+TOOLS = [refund, stripe_pack.subscriptions_cancel]
